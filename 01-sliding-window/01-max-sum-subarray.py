@@ -1,16 +1,20 @@
 #!/usr/bin/env python3
-from slidingwindow import SlidingWindow
+from slidingwindow import FixedSlidingWindow
 
 """
-Time Complexity:  O(N)
-Space Complexity: O(1)
+Given an array of positive numbers and a positive number `k`, find the maximum sum of any contiguous
+subarray of size `k`.
 """
 
 
 def max_sum_subarray(arr, k):
+    """
+    Time Complexity:  O(N)
+    Space Complexity: O(1)
+    """
     max_sum = 0
 
-    for window in SlidingWindow(arr, k):
+    for window in FixedSlidingWindow(arr, k):
         max_sum = max(max_sum, window)
 
     return max_sum
