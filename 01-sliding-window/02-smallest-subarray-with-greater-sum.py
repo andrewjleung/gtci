@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from slidingwindow import SlidingWindow
+import math
 
 """
 Given an array of positive numbers and a positive number `S`, find the length of the smallest
@@ -8,12 +9,28 @@ exists.
 """
 
 
-def smallest_subarray_with_greater_sum(arr, s):
+def smallest_subarray_sum(arr, s):
     """
-    Time Complexity:
-    Space Complexity:
+    Time Complexity:  O(n)
+    Space Complexity: O(1)
     """
-    return []
+    if s <= 0:
+        raise ValueError("s must be greater than 0")
+
+    w = SlidingWindow(arr)
+    smallest = math.inf
+
+    while not w.is_at_end():
+        w.extend_right()
+
+        while (w.window_sum >= s):
+            smallest = min(smallest, len(w))
+            w.retract_left()
+
+    if smallest == math.inf:
+        return 0
+
+    return smallest
 
 
 def test_ex1():
@@ -21,7 +38,7 @@ def test_ex1():
     s = 7
     o = 2
 
-    assert smallest_subarray_with_greater_sum(i, s) == o
+    assert smallest_subarray_sum(i, s) == o
 
 
 def test_ex2():
@@ -29,7 +46,7 @@ def test_ex2():
     s = 7
     o = 1
 
-    assert smallest_subarray_with_greater_sum(i, s) == o
+    assert smallest_subarray_sum(i, s) == o
 
 
 def test_ex3():
@@ -37,4 +54,20 @@ def test_ex3():
     s = 8
     o = 3
 
-    assert smallest_subarray_with_greater_sum(i, s) == o
+    assert smallest_subarray_sum(i, s) == o
+
+
+def test_ex4():
+    i = [1, 2, 3, 4, 5]
+    s = 16
+    o = 0
+
+    assert smallest_subarray_sum(i, s) == o
+
+
+def test_ex5():
+    i = [1, 3, 1, 2]
+    s = 2
+    o = 1
+
+    assert smallest_subarray_sum(i, s) == o
