@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from slidingwindow import SlidingWindow
+from slidingwindow import IntegerSlidingWindow
 import math
 
 """
@@ -17,7 +17,7 @@ def smallest_subarray_sum(arr, s):
     if s <= 0:
         raise ValueError("s must be greater than 0")
 
-    w = SlidingWindow(arr)
+    w = IntegerSlidingWindow(arr)
     smallest = math.inf
 
     while not w.is_at_end():

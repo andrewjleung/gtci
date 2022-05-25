@@ -14,7 +14,18 @@ class SlidingWindow:
         self.arr = arr
         self.window_start = 0
         self.window_end = 0
-        self.window_sum = 0
+
+    def __inc_accum_right__(self):
+        pass
+
+    def __dec_accum_right__(self):
+        pass
+
+    def __inc_accum_left__(self):
+        pass
+
+    def __dec_accum_left__(self):
+        pass
 
     def is_at_end(self):
         return self.window_end == len(self.arr)
@@ -38,7 +49,7 @@ class SlidingWindow:
             raise CannotMoveWindowException(
                 "Window is at the rightmost position")
 
-        self.window_sum += self.arr[self.window_end]
+        self.__inc_accum_right__()
         self.window_end += 1
 
     def extend_left(self):
@@ -47,7 +58,7 @@ class SlidingWindow:
                 "Window is at the leftmost position")
 
         self.window_start -= 1
-        self.window_sum += self.arr[self.window_start]
+        self.__inc_accum_left__()
 
     def retract_right(self):
         if self.is_minimum_window():
@@ -55,21 +66,40 @@ class SlidingWindow:
                 "Cannot retract an empty window")
 
         self.window_end -= 1
-        self.window_sum -= self.arr[self.window_end]
+        self.__dec_accum_right__()
 
     def retract_left(self):
         if self.is_minimum_window():
             raise CannotMoveWindowException(
                 "Cannot retract an empty window")
 
-        self.window_sum -= self.arr[self.window_start]
+        self.__dec_accum_left__()
         self.window_start += 1
 
     def __len__(self):
         return self.window_end - self.window_start
 
 
-class FixedSlidingWindow(SlidingWindow):
+class IntegerSlidingWindow(SlidingWindow):
+    def __init__(self, arr):
+        # TODO: verify that array is of integers?
+        super().__init__(arr)
+        self.window_sum = 0
+
+    def __inc_accum_right__(self):
+        self.window_sum += self.arr[self.window_end]
+
+    def __dec_accum_right__(self):
+        self.window_sum -= self.arr[self.window_end]
+
+    def __inc_accum_left__(self):
+        self.window_sum += self.arr[self.window_start]
+
+    def __dec_accum_left__(self):
+        self.window_sum -= self.arr[self.window_start]
+
+
+class FixedIntegerSlidingWindow(IntegerSlidingWindow):
     def __init__(self, arr, size):
         super().__init__(arr)
         self.size = size

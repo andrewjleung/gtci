@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from slidingwindow import FixedSlidingWindow
+from slidingwindow import FixedIntegerSlidingWindow
 
 """
 Given an array of positive numbers and a positive number `k`, find the maximum sum of any contiguous
@@ -14,7 +14,7 @@ def max_sum_subarray(arr, k):
     """
     max_sum = 0
 
-    for window in FixedSlidingWindow(arr, k):
+    for window in FixedIntegerSlidingWindow(arr, k):
         max_sum = max(max_sum, window)
 
     return max_sum
