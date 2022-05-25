@@ -13,8 +13,8 @@ class SlidingWindow:
 
         self.arr = arr
         self.window_start = 0
-        self.window_end = 1
-        self.window_sum = self.arr[self.window_start]
+        self.window_end = 0
+        self.window_sum = 0
 
     def is_at_end(self):
         return self.window_end == len(self.arr)
@@ -23,7 +23,7 @@ class SlidingWindow:
         return self.window_start == 0
 
     def is_minimum_window(self):
-        return len(self) == 1
+        return self.window_start == self.window_end
 
     def slide_right(self):
         self.extend_right()
@@ -52,7 +52,7 @@ class SlidingWindow:
     def retract_right(self):
         if self.is_minimum_window():
             raise CannotMoveWindowException(
-                "Window cannot be smaller than 1 element")
+                "Cannot retract an empty window")
 
         self.window_end -= 1
         self.window_sum -= self.arr[self.window_end]
@@ -60,7 +60,7 @@ class SlidingWindow:
     def retract_left(self):
         if self.is_minimum_window():
             raise CannotMoveWindowException(
-                "Window cannot be smaller than 1 element")
+                "Cannot retract an empty window")
 
         self.window_sum -= self.arr[self.window_start]
         self.window_start += 1
@@ -75,7 +75,7 @@ class FixedSlidingWindow(SlidingWindow):
         self.size = size
 
     def __iter__(self):
-        for i in range(self.size - 1):
+        for i in range(self.size):
             self.extend_right()
 
         return self
