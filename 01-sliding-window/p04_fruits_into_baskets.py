@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 from p03_longest_substr_k_distinct import longest_substr_k_distinct
 
 """
