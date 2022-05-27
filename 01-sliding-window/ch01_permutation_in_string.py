@@ -8,7 +8,7 @@ Permutation is defined as the re-arranging of the characters of the string.
 def permutation_in_string(str, pattern):
     """
     Time Complexity:  O(n + m)
-    Space Complexity: O(1)
+    Space Complexity: O(m)
     """
     window_start = 0
     char_freqs = {}
