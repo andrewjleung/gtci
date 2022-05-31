@@ -8,6 +8,10 @@ the given target.
 
 
 def pair_with_target_sum(arr, target):
+    """
+    Time Complexity:  O(n)
+    Space Complexity: O(1)
+    """
     left = 0
     right = len(arr) - 1
 
