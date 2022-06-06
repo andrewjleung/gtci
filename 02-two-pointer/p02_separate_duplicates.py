@@ -7,10 +7,18 @@ subarray that has no duplicate in it
 
 def separate_duplicates(arr):
     """
-    Time Complexity:  O()
-    Space Complexity: O()
+    Time Complexity:  O(n)
+    Space Complexity: O(1)
     """
-    pass
+    next_non_duplicate, i = 1, 0
+
+    while i < len(arr):
+        if arr[i] != arr[next_non_duplicate - 1]:
+            arr[next_non_duplicate] = arr[i]
+            next_non_duplicate += 1
+        i += 1
+
+    return next_non_duplicate
 
 
 def test_ex1():
