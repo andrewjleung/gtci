@@ -6,8 +6,8 @@ the sorted order.
 
 def square_sorted_array(arr):
     """
-    Time Complexity:  O()
-    Space Complexity: O()
+    Time Complexity:  O(n)
+    Space Complexity: O(n)
     """
     left, right = 0, len(arr) - 1
     squares = [0 for x in arr]
