@@ -2,6 +2,8 @@
 Given two strings containing backspaces (#), check if the two strings are equal
 """
 
+# TODO: clean this up!!!
+
 
 def compare_strings_w_backspaces(str1, str2):
     """
