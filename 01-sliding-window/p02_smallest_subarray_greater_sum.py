@@ -1,4 +1,3 @@
-from slidingwindow import IntegerSlidingWindow
 import math
 
 """
@@ -9,27 +8,22 @@ exists.
 
 
 def smallest_subarray_sum(arr, s):
-    """
-    Time Complexity:  O(n)
-    Space Complexity: O(1)
-    """
-    if s <= 0:
-        raise ValueError("s must be greater than 0")
+    window_start = 0
+    window_sum = 0
+    min_size = math.inf
 
-    w = IntegerSlidingWindow(arr)
-    smallest = math.inf
+    for window_end in range(len(arr)):
+        window_sum += arr[window_end]
 
-    while not w.is_at_end():
-        w.extend_right()
+        while window_sum >= s:
+            min_size = min(min_size, window_end - window_start + 1)
+            window_sum -= arr[window_start]
+            window_start += 1
 
-        while (w.window_sum >= s):
-            smallest = min(smallest, len(w))
-            w.retract_left()
-
-    if smallest == math.inf:
+    if min_size == math.inf:
         return 0
 
-    return smallest
+    return min_size
 
 
 def test_ex1():

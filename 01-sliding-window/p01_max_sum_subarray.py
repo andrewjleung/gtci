@@ -1,4 +1,5 @@
 from slidingwindow import FixedIntegerSlidingWindow
+import math
 
 """
 Given an array of positive numbers and a positive number `k`, find the maximum sum of any contiguous
@@ -11,10 +12,18 @@ def max_sum_subarray(arr, k):
     Time Complexity:  O(N)
     Space Complexity: O(1)
     """
+    window_start = 0
+    curr_sum = 0
     max_sum = 0
 
-    for window in FixedIntegerSlidingWindow(arr, k):
-        max_sum = max(max_sum, window)
+    for window_end in range(len(arr)):
+        curr_sum += arr[window_end]
+
+        if window_end >= k:
+            curr_sum -= arr[window_start]
+            window_start += 1
+
+        max_sum = max(max_sum, curr_sum)
 
     return max_sum
 
