@@ -24,7 +24,7 @@ def min_window_sort(arr):
     window_max = max(arr[low:high + 1])
     window_min = min(arr[low:high + 1])
 
-    while low > 0 and arr[low - 1] > min_window:
+    while low > 0 and arr[low - 1] > window_min:
         low -= 1
 
     while high < len(arr) - 1 and arr[high + 1] < window_max:
