@@ -8,6 +8,10 @@ If the total number of nodes in the linked list is even, return the second middl
 
 
 def get_middle(head):
+    """
+    Time Complexity:  O(n)
+    Space Complexity: O(1)
+    """
     slow = head
     fast = head
 
