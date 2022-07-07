@@ -48,13 +48,20 @@ def has_cycle_from_start(arr, start):
 
 
 def has_cycle(arr):
+    """
+    Time Complexity:  O(n^2)
+    Space Complexity: O(1)
+    """
     for i in range(len(arr)):
         if has_cycle_from_start(arr, i):
             return True
 
     return False
 
-# GTCI given solution, tests starting at each and every index.
+# GTCI given solution.
+# Note that this can be improved to an O(n) algorithm by using memoization at the cost of space
+# complexity O(n).
+
 # def circular_array_loop_exists(arr):
 #     for i in range(len(arr)):
 #         is_forward = arr[i] >= 0  # if we are moving forward or not
