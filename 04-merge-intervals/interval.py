@@ -9,6 +9,9 @@ class Interval:
     def __eq__(self, other):
         return isinstance(other, Interval) and self.start == other.start and self.end == other.end
 
+    def __lt__(self, other):
+        return self.end < other.end
+
 
 def intervals(arr):
     return [Interval(start, end) for [start, end] in arr]
