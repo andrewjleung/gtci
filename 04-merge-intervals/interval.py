@@ -35,3 +35,11 @@ def intervals_eq(a, b):
             return False
 
     return True
+
+
+def overlap(a, b):
+    if a.start <= b.start:
+        return a.end >= b.start
+
+    if b.start <= a.start:
+        return b.end >= a.start
