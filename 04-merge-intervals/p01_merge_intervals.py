@@ -8,8 +8,8 @@ mutually exclusive intervals.
 
 def merge_intervals(intervals):
     """
-    Time Complexity:  O()
-    Space Complexity: O()
+    Time Complexity:  O(nlogn) - sorting!
+    Space Complexity: O(n) - TimSort needs O(n) space and so does our result!
     """
     if len(intervals) < 2:
         return intervals
