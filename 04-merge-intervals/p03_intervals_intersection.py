@@ -1,7 +1,8 @@
 from interval import (Interval, intervals, intervals_eq, overlap)
 
 """
-Given two lists of intervals, find the intersection of theses two lists. Each list consists of disjoint intervals sorted on their start time.
+Given two lists of intervals, find the intersection of theses two lists. Each list consists of 
+disjoint intervals sorted on their start time.
 """
 
 
