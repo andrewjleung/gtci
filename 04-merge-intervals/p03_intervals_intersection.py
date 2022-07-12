@@ -21,11 +21,18 @@ def intervals_intersection(arr1, arr2):
             intersections.append(interval_intersection(arr1[i], arr2[j]))
 
         if interval1.end == interval2.end:
+            # Neither interval can possibly overlap with another interval in the other array since
+            # intervals within each individual array are assumed to be non-overlapping. Go to tne
+            # next interval in both arrays.
             i += 1
             j += 1
         elif interval1.end < interval2.end:
+            # The current interval in the first array cannot possibly overlap with any more
+            # intervals from the second since intervals within each individual array are assumed to
+            # be non-overlapping. Go to the next interval in the first array.
             i += 1
         else:
+            # Converse of the above.
             j += 1
 
     return intersections
