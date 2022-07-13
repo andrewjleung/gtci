@@ -18,7 +18,7 @@ def find_missing_num(nums):
 
         # Ignore the number `n` since we cannot possibly swap it into its place since the array is
         # of length `n`.
-        if j == i or j >= len(nums):
+        if nums[i] >= len(nums) or nums[j] == nums[i]:
             i += 1
             continue
 
