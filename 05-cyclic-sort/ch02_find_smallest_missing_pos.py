@@ -15,7 +15,7 @@ def find_smallest_missing_pos(nums):
     while i < len(nums):
         j = nums[i] - 1
 
-        if nums[i] >= len(nums) or nums[i] < 1 or nums[i] == nums[j]:
+        if nums[i] > len(nums) or nums[i] < 1 or nums[i] == nums[j]:
             i += 1
             continue
 
