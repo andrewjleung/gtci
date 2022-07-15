@@ -1,6 +1,7 @@
-from node import node
-from p04_middle_of_linkedlist import get_middle
 from ch01_palindrome_linkedlist import reverse
+from p04_middle_of_linkedlist import get_middle
+from src.datastructures.node import node
+
 
 """
 Given the head of a singly linked list, write a method to modify the linked list such that the nodes

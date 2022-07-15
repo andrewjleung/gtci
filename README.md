@@ -2,4 +2,19 @@
 
 Following along with DesignGurus' "Grokking the Coding Interview," in python.
 
-I am 100% liable to switch languages at any point, but for now python seems to be the easiest way to go.
+## Setup
+
+Run the following to install packages in a virtual environment:
+
+```bash
+make
+source .venv/bin/activate
+```
+
+## Testing
+
+Test with the following command:
+
+```bash
+pytest src
+```

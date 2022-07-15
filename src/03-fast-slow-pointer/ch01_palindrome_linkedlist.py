@@ -1,5 +1,6 @@
-from node import Node
 from p04_middle_of_linkedlist import get_middle
+from src.datastructures.node import Node
+
 
 """
 Given the head of a singly linked list, write a method to check if the linked list is a palindrome 

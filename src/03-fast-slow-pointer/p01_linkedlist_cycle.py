@@ -1,4 +1,5 @@
-from node import Node
+from src.datastructures.node import Node
+
 
 """
 Given the head of a singly linked list, write a function to determine if the linked list has a cycle

@@ -1,4 +1,5 @@
-from node import Node
+from src.datastructures.node import Node
+
 
 """
 Given the head of a singly linked list that contains a cycle, write a function to find the starting
