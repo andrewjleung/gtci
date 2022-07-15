@@ -10,6 +10,41 @@ class Node:
         return self.value == other.value and ((self.next is None and other.next is None) or (self.next.structeq(other.next)))
 
 
+def node_eq_array(head, arr):
+    for i in range(len(arr)):
+        if head is None or head.value != arr[i]:
+            return False
+
+        head = head.next
+
+    return head is None
+
+
+def test_node_eq_array_empty():
+    head = node([])
+    assert node_eq_array(head, [])
+
+
+def test_node_eq_array_diff_len1():
+    head = node([1, 2, 3])
+    assert not node_eq_array(head, [1, 2])
+
+
+def test_node_eq_array_diff_len2():
+    head = node([1, 2])
+    assert not node_eq_array(head, [1, 2, 3])
+
+
+def test_node_eq_array_diff_not_eq1():
+    head = node([1, 2, 4])
+    assert not node_eq_array(head, [1, 2, 3])
+
+
+def test_node_eq_array_diff_not_eq2():
+    head = node([0, 2, 4])
+    assert not node_eq_array(head, [1, 2, 3])
+
+
 def node(lst):
     if len(lst) < 1:
         return None
