@@ -9,6 +9,13 @@ class Node:
 
         return self.value == other.value and ((self.next is None and other.next is None) or (self.next.structeq(other.next)))
 
+    def print_list(self):
+        temp = self
+        while temp is not None:
+            print(temp.value, end=" ")
+            temp = temp.next
+        print()
+
 
 def node_eq_array(head, arr):
     for i in range(len(arr)):
