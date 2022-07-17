@@ -19,7 +19,7 @@ def reverse_k(head, k):
     previous = None
     current = head
 
-    while True:
+    while current is not None:
         # The last of the previous sub-list is needed in order to connect the previous sub-list to
         # the current sub-list after it has been reversed.
         last_of_previous_sublist = previous
@@ -55,9 +55,6 @@ def reverse_k(head, k):
         # are reversed, while all after are un-reversed.
         last_of_current_sublist.next = current
 
-        if current is None:
-            break
-
         # `previous` currently contains the last element of the original current sub-list, while we
         # need it to contain the last element of the reversed current sub-list, which
         # `last_of_current_sublist` contains. This needs to be retained for the next sub-list's
@@ -72,7 +69,6 @@ def test_ex1():
     k = 3
     actual = reverse_k(head, k)
     expected = [3, 2, 1, 6, 5, 4, 8, 7]
-    actual.print_list()
     assert node_eq_array(actual, expected)
 
 
@@ -81,7 +77,6 @@ def test_ex2():
     k = 3
     actual = reverse_k(head, k)
     expected = [3, 2, 1, 6, 5, 4]
-    actual.print_list()
     assert node_eq_array(actual, expected)
 
 
@@ -97,7 +92,6 @@ def test_ex4():
     k = 2
     actual = reverse_k(head, k)
     expected = [2, 1, 3]
-    actual.print_list()
     assert node_eq_array(actual, expected)
 
 
@@ -106,7 +100,6 @@ def test_ex5():
     k = 1
     actual = reverse_k(head, k)
     expected = [1, 2, 3]
-    actual.print_list()
     assert node_eq_array(actual, expected)
 
 
@@ -115,5 +108,4 @@ def test_ex6():
     k = 4
     actual = reverse_k(head, k)
     expected = [3, 2, 1]
-    actual.print_list()
     assert node_eq_array(actual, expected)
