@@ -9,6 +9,10 @@ left to right in separate sub-arrays.
 
 
 def rtraverse(root):
+    """
+    Time Complexity:  O(n)
+    Space Complexity: O(n)
+    """
     results = deque()
 
     if root is None:
