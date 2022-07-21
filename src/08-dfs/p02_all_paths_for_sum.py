@@ -8,7 +8,7 @@ node values of each path equals `S`.
 
 def all_sum_paths(root, s):
     """
-    Time Complexity:  O(nlogn) - O(n) calls on the stack, O(nlogn) time to copy at most O(n) paths.
+    Time Complexity:  O(nlogn) - O(n) calls on the stack, O(logn) time to copy at most O(n) paths.
     Space Complexity: O(nlogn)
     """
     # The potential number of paths stored is O(n). Each path can contain at most O(logn) elements.
