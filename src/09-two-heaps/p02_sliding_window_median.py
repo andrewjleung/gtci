@@ -7,7 +7,7 @@ Given an array of numbers and a number `k`, find the median of all the `k` sized
 
 def sliding_window_median(nums, k):
     """
-    Time Complexity:  O(nlogk)
+    Time Complexity:  O(nk) - removing from the heap takes O(k)
     Space Complexity: O(k) - ignoring the output array...
     """
     max_heap = []  # Lower half. For odd `k`, will have the greater half.
