@@ -26,8 +26,8 @@ def permutations(nums):
 
             # Iterate through each position of the permutation for insertion.
             for i in range(len(permutation) + 1):
-                new_permutation = list(permutation)  # O(n)
-                new_permutation.insert(i, num)  # O(n)
+                new_permutation = list(permutation)
+                new_permutation.insert(i, num)
 
                 # If the permutation is ready (of length `n`), accumulate it.
                 if len(new_permutation) == len(nums):
@@ -40,7 +40,7 @@ def permutations(nums):
 
 
 def test_ex1():
-    nums = [1, 2, 3]
+    nums = [1, 2, 3, 4, 5]
     actual = permutations(nums)
     expected = [[1, 2, 3], [1, 3, 2], [
         2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
