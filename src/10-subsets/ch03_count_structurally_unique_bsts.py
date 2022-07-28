@@ -6,7 +6,7 @@ Given a number `n`, write a function to return the count of structurally unique 
 """
 Time Complexity:  O(n^2)
     - With memoization, each subproblem for each subset of the range 1-n is only calculated once.
-    - A range/array/whatever has O(n^2) subsets.
+    - A range/array/whatever has O(n^2) subarrays.
 
 Space Complexity: O(n)
     - The memo will only hold at most `n` elements, one for each possible subproblem.

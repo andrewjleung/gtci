@@ -26,6 +26,15 @@ Space Complexity: O(cat(n))
     - Storing the results for `cat(n)` evaluations.
 """
 
+"""
+WITH MEMOIZATION:
+
+Time Complexity:  O(n^2)
+    - O(n^2) sub-expressions in an expression
+Space Complexity: O(n * cat(n))
+    - n eval subarrays, each of size O(cat(n))
+"""
+
 OPS = {
     "+": lambda l, r: l + r,
     "-": lambda l, r: l - r,

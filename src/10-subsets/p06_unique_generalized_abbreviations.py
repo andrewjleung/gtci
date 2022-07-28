@@ -24,7 +24,7 @@ class Abbreviation():
 
 def generalized_abb(word):
     """
-    Time Complexity:  O(2^n) - every character can either be kept or abbreviated.
+    Time Complexity:  O(n * 2^n) - every character can either be kept or abbreviated.
     Space Complexity: O(n * 2^n)
     """
     results = []
