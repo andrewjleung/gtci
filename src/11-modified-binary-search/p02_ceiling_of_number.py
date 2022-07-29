@@ -21,7 +21,7 @@ def ceiling_of_number(nums, key):
     end = len(nums) - 1
 
     while start <= end:
-        middle = start + int((end - start) / 2)
+        middle = start + (end - start) // 2
 
         if nums[middle] == key:
             return middle
