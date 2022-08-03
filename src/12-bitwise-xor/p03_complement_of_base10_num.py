@@ -13,7 +13,7 @@ representation as a base-10 integer.
 
 def base10_complement(num):
     """
-    Time Complexity:  O(logn)
+    Time Complexity:  O(b) - `b` is the number of bits required to store the number 
     Space Complexity: O(1)
     """
     bit_count = 0
