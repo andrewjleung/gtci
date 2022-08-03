@@ -19,6 +19,10 @@ def two_single_numbers_set(nums):
 
 
 def two_single_numbers(nums):
+    """
+    Time Complexity:  O(n)
+    Space Complexity: O(1)
+    """
     # Find the XOR of both numbers.
     n1xn2 = 0
     for num in nums:
