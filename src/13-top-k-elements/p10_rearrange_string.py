@@ -17,15 +17,11 @@ def rearrange_string(string):
     for char in string:  # O(n)
         frequencies[char] = frequencies.get(char, 0) + 1
 
-    # Place all characters with more than one occurrence in a max heap based on
-    # their frequencies. Place all distinct characters in the result.
+    # Place all characters in a max heap based on their frequencies.
     result = []
     max_heap = []
     for char, freq in frequencies.items():  # O(n * log n)
-        if freq < 2:
-            result.append(char)
-        else:
-            heappush(max_heap, (-freq, char))
+        heappush(max_heap, (-freq, char))
 
     # Keep trying to add an a character with the highest frequency to the
     # result. If at any point, only a single character remains with more than
