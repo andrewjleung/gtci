@@ -42,15 +42,21 @@ def rearrange_string_k_distance_apart(string, k):
         result.append(char)
         cant_place.append((char, neg_freq + 1))
 
+        # In order for the length of `cant_place` to be comparable to `k`, we
+        # need to place ALL characters that we've just placed into it,
+        # regardless of if they actually can be placed again. Otherwise, we need
+        # to keep track of the exact index each element was placed.
         if len(cant_place) == k:
             char, neg_freq = cant_place.popleft()
 
+            # If the character can't be placed again, don't put it back in the
+            # heap.
             if -neg_freq > 0:
                 heappush(max_heap, (neg_freq, char))
 
     # We are always pushing regardless of frequency to the cant_place queue.
     # We can't trust that it being non-empty implies that we couldn't place all
-    # characters. I don't love this.
+    # characters. I don't love this, but it's necessary.
     if len(result) != len(string):
         return ''
 
