@@ -16,6 +16,9 @@ class Node:
             temp = temp.next
         print()
 
+    def __lt__(self, other):
+        return self.value < other.value
+
 
 def node_eq_array(head, arr):
     for i in range(len(arr)):
