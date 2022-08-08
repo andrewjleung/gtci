@@ -11,7 +11,7 @@ the array such that we are left with maximum distinct numbers
 
 def max_distinct_elements(nums, k):
     """
-    Time Complexity:  O(n + n * log n + k * log n)
+    Time Complexity:  O(n * log n + k * log n)
     Space Complexity: O(n)
     """
     # Edge case. You'd have to remove all the items.
