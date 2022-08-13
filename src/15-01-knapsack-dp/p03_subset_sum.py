@@ -85,6 +85,34 @@ def subset_sum_bu(nums, sum):
     return table[len(nums) - 1][sum]
 
 
+def subset_sum_buso(nums, sum):
+    """
+    Time Complexity:  O(n * s)
+    Space Complexity: O(s)
+    """
+    if len(nums) < 1:
+        return False
+
+    table = [False for _ in range(sum + 1)]
+
+    for i in range(len(nums)):
+        table[0] = True
+
+    for s in range(1, sum + 1):
+        table[s] = nums[0] == s
+
+    for i in range(1, len(nums)):
+        for s in range(sum, -1, -1):
+            # If the value for the previous row is already true, then a subset
+            # sum can be found without considering `nums[i]`. We can just move
+            # on. Otherwise, you have to see if a subset sum can be reached
+            # by including `nums[i]`.
+            if not table[s] and nums[i] <= s:
+                table[s] = table[s - nums[i]]
+
+    return table[sum]
+
+
 def test_bf1():
     nums = [1, 2, 3, 7]
     s = 6
@@ -145,4 +173,25 @@ def test_bu3():
     nums = [1, 3, 4, 8]
     s = 6
     actual = subset_sum_bu(nums, s)
+    expected = False
+
+
+def test_buso1():
+    nums = [1, 2, 3, 7]
+    s = 6
+    actual = subset_sum_buso(nums, s)
+    expected = True
+
+
+def test_buso2():
+    nums = [1, 2, 7, 1, 5]
+    s = 10
+    actual = subset_sum_buso(nums, s)
+    expected = True
+
+
+def test_buso3():
+    nums = [1, 3, 4, 8]
+    s = 6
+    actual = subset_sum_buso(nums, s)
     expected = False
