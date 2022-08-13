@@ -140,6 +140,41 @@ def knapsack_bottom_up(weights, profits, capacity):
     return table[n - 1][capacity]
 
 
+def knapsack_bottom_up_space_optimized(weights, profits, capacity):
+    """
+    Time Complexity:  O(n * c)
+    Space Complexity: O(c)
+    """
+    n = len(weights)
+
+    # Base cases / error checks.
+    if capacity <= 0 or n <= 0 or len(profits) != n:
+        return 0
+
+    # You only need to keep track of the previous row in order to compute the
+    # current row! Because of this we only need a single row.
+    table = [0 for _ in range(capacity + 1)]
+    table[0] = 0
+
+    for c in range(capacity + 1):
+        if weights[0] <= c:
+            table[c] = profits[0]
+
+    for i in range(1, n):
+        # Iterate through capacity backwards to avoid overwriting cells still
+        # required to calculate later ones.
+        for c in range(capacity, -1, -1):
+            not_pick_profit = table[c]
+            pick_profit = 0
+
+            if weights[i] <= c:
+                pick_profit = profits[i] + table[c - weights[i]]
+
+            table[c] = max(not_pick_profit, pick_profit)
+
+    return table[capacity]
+
+
 weights = [2, 3, 1, 4]
 profits = [4, 5, 3, 7]
 capacity = 5
@@ -158,4 +193,9 @@ def test_top_down():
 
 def test_bottom_up():
     actual = knapsack_bottom_up(weights, profits, capacity)
+    assert actual == expected
+
+
+def test_bottom_up_space_optimized():
+    actual = knapsack_bottom_up_space_optimized(weights, profits, capacity)
     assert actual == expected
