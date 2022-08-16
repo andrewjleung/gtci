@@ -12,6 +12,9 @@ class Graph:
             self.edges.append(E(edge[0], edge[1]))
 
     def verify_topological_sort(self, top_sort):
+        if len(top_sort) != self.vertices:
+            return False
+
         dependencies = {}
         for edge in self.edges:
             if edge.u not in dependencies:
