@@ -40,14 +40,6 @@ def permutations(nums):
 
 
 def test_ex1():
-    nums = [1, 2, 3, 4, 5]
-    actual = permutations(nums)
-    expected = [[1, 2, 3], [1, 3, 2], [
-        2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
-    assert contains_same_elements(actual, expected)
-
-
-def test_ex2():
     nums = [1, 3, 5]
     actual = permutations(nums)
     expected = [[1, 3, 5], [1, 5, 3], [

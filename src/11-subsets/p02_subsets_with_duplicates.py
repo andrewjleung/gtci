@@ -1,3 +1,5 @@
+from src.testutils import contains_same_elements
+
 """
 Given a set of numbers that might contain duplicates, find all of its distinct subsets.
 """
@@ -37,19 +39,18 @@ def subsets_w_dupes(elements):
 
 def test_ex1():
     elements = [1, 3, 3]
-    assert subsets_w_dupes(elements) == [[], [1], [3], [
-        1, 3], [3, 3], [1, 3, 3]]
+    assert contains_same_elements(subsets_w_dupes(
+        elements), [[], [1], [3], [1, 3], [3, 3], [1, 3, 3]])
 
 
 def test_ex2():
     elements = [1, 5, 3, 3]
     print(subsets_w_dupes(elements))
-    assert subsets_w_dupes(elements) == [[], [1], [5], [3], [1, 5], [1, 3], [5, 3], [
-        1, 5, 3], [3, 3], [1, 3, 3], [3, 3, 5], [1, 5, 3, 3]]
+    assert contains_same_elements(subsets_w_dupes(elements), [[], [1], [5], [3], [
+                                  1, 5], [1, 3], [3, 5], [1, 3, 5], [3, 3], [1, 3, 3], [3, 3, 5], [1, 3, 3, 5]])
 
 
 def test_ex3():
     elements = [3, 3, 3]
-    print(subsets_w_dupes(elements))
-    assert subsets_w_dupes(elements) == [[], [3], [
-        3, 3], [3, 3, 3]]
+    assert contains_same_elements(subsets_w_dupes(elements), [
+                                  [], [3], [3, 3], [3, 3, 3]])

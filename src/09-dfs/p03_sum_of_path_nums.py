@@ -26,7 +26,7 @@ def sum_of_path_nums(root):
         # Traverse the sub trees.
         return sum_of_path_nums_help(node.left, path_sum) + sum_of_path_nums_help(node.right, path_sum)
 
-    return sum_of_path_nums_help(node, 0)
+    return sum_of_path_nums_help(root, 0)
 
 
 def test_ex1():
