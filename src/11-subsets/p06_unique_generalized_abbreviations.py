@@ -74,7 +74,6 @@ def test_ex1():
 def test_ex2():
     word = "code"
     actual = generalized_abb(word)
-    print(actual)
     expected = ["code", "cod1", "co1e", "co2", "c1de", "c1d1", "c2e", "c3", "1ode", "1od1", "1o1e", "1o2",
                 "2de", "2d1", "3e", "4"]
     assert contains_same_elements(actual, expected)

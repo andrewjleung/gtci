@@ -50,7 +50,6 @@ def test_ex1():
     nums = [3, -1, 4, 5, 5]
     k = 3
     actual = find_k_missing_pos(nums, k)
-    print(nums)
     assert actual == [1, 2, 6]
 
 
@@ -58,7 +57,6 @@ def test_ex2():
     nums = [2, 3, 4]
     k = 3
     actual = find_k_missing_pos(nums, k)
-    print(nums)
     assert actual == [1, 5, 6]
 
 
@@ -66,7 +64,6 @@ def test_ex3():
     nums = [-2, -3, 4]
     k = 2
     actual = find_k_missing_pos(nums, k)
-    print(nums)
     assert actual == [1, 2]
 
 
@@ -74,7 +71,6 @@ def test_ex4():
     nums = [1, 2, 3, 4]
     k = 3
     actual = find_k_missing_pos(nums, k)
-    print(nums)
     assert actual == [5, 6, 7]
 
 
@@ -82,5 +78,4 @@ def test_ex5():
     nums = [1, 4]
     k = 4
     actual = find_k_missing_pos(nums, k)
-    print(nums)
     assert actual == [2, 3, 5, 6]

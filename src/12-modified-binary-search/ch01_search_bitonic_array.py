@@ -32,7 +32,6 @@ def binary_search(nums, key, start, end, increasing):
     Time Complexity:  O(logn)
     Space Complexity: O(1)
     """
-    print(nums[start:end + 1])
     while start <= end:
         middle = start + (end - start) // 2
 

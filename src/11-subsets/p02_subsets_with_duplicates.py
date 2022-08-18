@@ -45,7 +45,6 @@ def test_ex1():
 
 def test_ex2():
     elements = [1, 5, 3, 3]
-    print(subsets_w_dupes(elements))
     assert contains_same_elements(subsets_w_dupes(elements), [[], [1], [5], [3], [
                                   1, 5], [1, 3], [3, 5], [1, 3, 5], [3, 3], [1, 3, 3], [3, 3, 5], [1, 3, 3, 5]])
 

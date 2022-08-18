@@ -93,7 +93,7 @@ def test_ex1():
     e = EvaluateAllExpressions()
     actual = e.evaluate_all_expressions(expr)
     expected = [7, 9]
-    print(f"calls: {e.calls}\nhits:  {e.hits}")
+    # print(f"calls: {e.calls}\nhits:  {e.hits}")
     assert contains_same_elements(actual, expected)
 
 
@@ -102,7 +102,7 @@ def test_ex2():
     e = EvaluateAllExpressions()
     actual = e.evaluate_all_expressions(expr)
     expected = [8, -12, 7, -7, -3]
-    print(f"calls: {e.calls}\nhits:  {e.hits}")
+    # print(f"calls: {e.calls}\nhits:  {e.hits}")
     assert contains_same_elements(actual, expected)
 
 
@@ -111,5 +111,5 @@ def test_ex3():
     e = EvaluateAllExpressions()
     actual = e.evaluate_all_expressions(expr)
     expected = [2, 2]
-    print(f"calls: {e.calls}\nhits:  {e.hits}")
+    # print(f"calls: {e.calls}\nhits:  {e.hits}")
     assert contains_same_elements(actual, expected)
