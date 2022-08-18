@@ -23,7 +23,8 @@ class SameTree:
         self.is_same = Value(c_bool, True)
         # NOTE: `cpu_count` does NOT give you the number of available CPUs, but
         #       rather the total number of CPUs. I could not find a standard way
-        #       to find this information on MacOS.
+        #       to find this information on MacOS. This serves as an example for
+        #       what to do with this information.
         num_cpus = cpu_count()
         return self.same_tree_multiprocessed(root1, root2, num_cpus)
 
@@ -63,8 +64,11 @@ class SameTree:
             p.join()
         # If there are no available CPUs, do the work in this current process.
         else:
-            return self.same_tree_multiprocessed(root1.left, root2.left, 0)  \
+            result = self.same_tree_multiprocessed(root1.left, root2.left, 0)  \
                 and self.same_tree_multiprocessed(root1.right, root2.right, 0)
+
+            with self.is_same.get_lock():
+                self.is_same.value &= result
 
         return self.is_same.value
 
